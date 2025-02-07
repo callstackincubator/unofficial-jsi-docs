@@ -1,0 +1,31 @@
+name: Deploy Doxygen Documentation
+
+on:
+  push:
+    branches: [ main ]  # or your default branch
+  workflow_dispatch:    # allows manual triggering
+
+jobs:
+  deploy-documentation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install Doxygen
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y doxygen graphviz
+
+    - name: Generate Doxygen Documentation
+      run: doxygen
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: generated/html
+        branch: gh-pages   # The branch the action should deploy to
+        clean: true       # Automatically remove deleted files from the deployment
