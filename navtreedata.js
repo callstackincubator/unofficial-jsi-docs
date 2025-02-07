@@ -24,12 +24,47 @@
 */
 var NAVTREE =
 [
-  [ "JSI", "index.html", ]
+  [ "JSI", "index.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ]
+      ] ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Related Symbols", "functions_rela.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"JSIDynamic_8cpp.html",
+"classfacebook_1_1jsi_1_1JSINativeException.html#ad5b18524b466417fac5900b42c452278",
+"classfacebook_1_1jsi_1_1Runtime.html#a60c3ebcbc60a5ab2cb737744950e73c6",
+"classfacebook_1_1jsi_1_1RuntimeDecorator.html#ab8dd075ef4ddc1ff4c2dc9d607d09d78",
+"classfacebook_1_1jsi_1_1WithRuntimeDecorator.html#a13cb43d8d408b04c3db5553e0560b157",
+"jsi_8h.html#ab5bd20ade17e509b20d790798c07e83e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
