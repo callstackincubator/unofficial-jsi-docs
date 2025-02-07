@@ -5,9 +5,21 @@ on:
     branches: [ main ]  # or your default branch
   workflow_dispatch:    # allows manual triggering
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   deploy-documentation:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
     - name: Checkout repository
@@ -24,9 +36,14 @@ jobs:
     - name: Generate Doxygen Documentation
       run: doxygen
 
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        folder: generated/html
-        branch: gh-pages   # The branch the action should deploy to
-        clean: true       # Automatically remove deleted files from the deployment
+        path: 'generated/html'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
